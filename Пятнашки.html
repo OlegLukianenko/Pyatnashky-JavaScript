@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>javascript</title>
+
+
+<style type="text/css">
+ .div1
+  {
+    border: 1px solid white; 
+    background-color: #bd9356; 
+    width: 100px;
+    height: 100px;
+    float:left;
+    border-radius: 7px;
+    font-size: 38pt;
+    text-align: center;
+    line-height: 1.8em;
+    -webkit-user-select: none;
+
+  }
+
+
+.div2
+  {
+    display: block;
+    background-color: #928d4f;
+    width: 450px;
+    height: 450px; 
+    margin: 0 auto; 
+    padding-left: 40px;  
+    padding-top: 40px;
+    border-radius: 7px;
+  }
+.div1:hover 
+{
+    background: #ab824e; 
+} 
+
+</style>
+
+
+
+<script type="text/javascript">
+
+var md = new Array ();
+for (var j = 0; j < 15; j++)
+    md [j] = j + 1;
+
+// перемешиваем эти числа случайным образом
+md.sort (new Function ('x', 'y', 'return Math.random () - Math.random ()') );
+
+</script>
+
+
+  </head>
+  <body style="background-color: #928d4f; " >
+
+<h1 style="text-align: center; font-size: 35pt;">Пятнашки</h1>
+
+  <div id="parentElem" class="div2">
+
+        <div id="b1" class="div1" onclick="test(event)" ><script>document.write(md[0]);</script></div>
+        <div id="b2"  class="div1" onclick="test(event)"><script>document.write(md[1]);</script></div>
+        <div id="b3"  class="div1" onclick="test(event)"><script>document.write(md[2]);</script></div>
+        <div id="b4"  class="div1" onclick="test(event)"><script>document.write(md[3]);</script></div> <br>
+
+        <div id="b5" class="div1" onclick="test(event)"> <script>document.write(md[4]);</script> </div>
+        <div id="b6" class="div1" onclick="test(event)"> <script>document.write(md[5]);</script></div>
+        <div id="b7" class="div1" onclick="test(event)"> <script>document.write(md[6]);</script></div>
+        <div id="b8" class="div1" onclick="test(event)"> <script>document.write(md[7]);</script></div> <br>
+
+        <div id="b9" class="div1" onclick="test(event)"> <script>document.write(md[8]);</script> </div>
+        <div id="b10" class="div1" onclick="test(event)"> <script>document.write(md[9]);</script> </div>
+        <div id="b11" class="div1" onclick="test(event)"> <script>document.write(md[10]);</script> </div>
+        <div id="b12" class="div1" onclick="test(event)"> <script>document.write(md[11]);</script> </div> <br>
+
+        <div id="b13" class="div1" onclick="test(event)"> <script>document.write(md[12]);</script> </div>
+        <div id="b14" class="div1" onclick="test(event)"> <script>document.write(md[13]);</script> </div>
+        <div id="b15" class="div1" onclick="test(event)"> <script>document.write(md[14]);</script> </div>
+        <div id="b16" class="div1" onclick="test(event)"></div>
+        
+ </div>
+
+
+<script type="text/javascript">
+
+var mass  = document.getElementById('parentElem').getElementsByClassName('div1');
+
+function test(evt)
+{
+  evt = (evt)?evt:((window.event)?event:null);
+  if(evt==null) return;
+
+   var id =(evt.srcElement)?evt.srcElement.id:evt.target.id;
+
+    var elem = document.getElementById(id);
+
+var a=0;
+for (var i = 0; i < mass.length; i++) 
+{
+
+	if(mass[i].innerHTML=="")
+	{
+		 var elemNull = mass[i];
+		 a=i; 
+	}
+}
+
+if(id=="b15" && a==15 || id=="b16" && a==14 || id=="b14" && a==14|| id=="b13" && a==13|| id=="b15" && a==13|| id=="b14" && a==12|| id=="b9" && a==12|| id=="b13" && a==8|| id=="b10" && a==8|| id=="b12" && a==15|| id=="b16" && a==11|| id=="b15" && a==10|| id=="b11" && a==14 || id=="b10" && a==13|| id=="b14" && a==9|| id=="b9" && a==9 || id=="b11" && a==9|| id=="b10" && a==10|| id=="b12" && a==10|| id=="b11" && a==11|| id=="b8" && a==11|| id=="b12" && a==7|| id=="b7" && a==10 || id=="b11" && a==6|| id=="b6" && a==9|| id=="b5" && a==8|| id=="b9" && a==4 || id=="b10" && a==5|| id=="b6" && a==4 || id=="b1" && a==4 || id=="b4" && a==7 || id=="b8" && a==3|| id=="b3" && a==3  || id=="b7" && a==7|| id=="b8" && a==6|| id=="b3" && a==6|| id=="b7" && a==2|| id=="b6" && a==6|| id=="b7" && a==5|| id=="b5" && a==5|| id=="b5" && a==0|| id=="b2" && a==0|| id=="b4" && a==2|| id=="b2" && a==2|| id=="b3" && a==1|| id=="b6" && a==1|| id=="b2" && a==5|| id=="b1" && a==1)
+{
+	elemNull.innerHTML=elem.innerHTML;
+	elem.innerHTML="";
+}
+
+  if(mass[0].innerText==1 && mass[1].innerText==2 && mass[2].innerText==3 && mass[3].innerText==4 && mass[4].innerText==5 && mass[5].innerText==6 && mass[6].innerText==7 && mass[7].innerText==8 && mass[8].innerText==9 && mass[9].innerText==10  && mass[10].innerText==11 && mass[11].innerText==12 && mass[12].innerText==13 && mass[13].innerText==14 && mass[14].innerText==15 )
+  {
+    alert("ПОБЕДА!!!"); 
+    location.reload();
+    return;      
+  }     
+
+}
+ 
+
+</script>
+
+  </body>
+  </html>
